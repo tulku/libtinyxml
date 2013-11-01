@@ -1,0 +1,11 @@
+<package>
+  <name>TinyXML</name>
+  <version>2.6.2</version>
+  <description>
+  TinyXML as a catkin package
+  </description>
+  <maintainer email="lucas@creativa77.com">Lucas Chiesa</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
