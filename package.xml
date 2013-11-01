@@ -1,5 +1,5 @@
 <package>
-  <name>TinyXML</name>
+  <name>tinyxml</name>
   <version>2.6.2</version>
   <description>
   TinyXML as a catkin package
