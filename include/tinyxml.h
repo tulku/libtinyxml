@@ -26,6 +26,9 @@ distribution.
 #ifndef TINYXML_INCLUDED
 #define TINYXML_INCLUDED
 
+// Force the use of STL versions
+#define TIXML_USE_STL
+
 #if defined (_WIN32)
 	#if defined(tinyxml_EXPORTS)
 		#define EXPORT __declspec(dllexport)
