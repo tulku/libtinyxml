@@ -1,23 +1,24 @@
 cmake_minimum_required(VERSION 2.8.3)
-
 project(tinyxml)
-
-set(LIBRARY_OUTPUT_PATH lib/${CMAKE_BUILD_TYPE})
-
-include_directories(./)
-
-file(
-	GLOB_RECURSE
-	source_files
-	*.h
-	*.cpp
+find_package(catkin REQUIRED COMPONENTS)
+catkin_package(
+  INCLUDE_DIRS include
+  LIBRARIES tinyxml
 )
 
-add_library(
-	tinyxml
-	SHARED
-	${source_files}
-)
+include_directories(include ${catkin_INCLUDE_DIRS})
+link_directories(${catkin_LIBRARY_DIRS})
+
+if(WIN32)
+  add_definitions(-D_WINDOWS)
+endif()
+
+add_library(tinyxml
+  src/tinystr.cpp
+  src/tinyxml.cpp
+  src/tinyxmlerror.cpp
+  src/tinyxmlparser.cpp
+  )
 
 # FIXME the headers should be in a package-specific subfolder but can not be for backward compatibility
 install(DIRECTORY include/
