@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8.3)
 
-project(TinyXml)
+project(tinyxml)
 
 set(LIBRARY_OUTPUT_PATH lib/${CMAKE_BUILD_TYPE})
 
@@ -19,7 +19,12 @@ add_library(
 	${source_files}
 )
 
-#SET_TARGET_PROPERTIES (tinyxml PROPERTIES DEFINE_SYMBOL  "EXPORT" )
+# FIXME the headers should be in a package-specific subfolder but can not be for backward compatibility
+install(DIRECTORY include/
+  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h")
 
-INSTALL( FILES tinyxml.h tinystr.h DESTINATION include/ )
-INSTALL( FILES lib/libtinyxml.so DESTINATION lib/ )
+install(TARGETS tinyxml
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
