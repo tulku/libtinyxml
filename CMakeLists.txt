@@ -13,6 +13,8 @@ if(WIN32)
   add_definitions(-D_WINDOWS)
 endif()
 
+add_definitions( -DTIXML_USE_STL)
+
 add_library(tinyxml
   src/tinystr.cpp
   src/tinyxml.cpp
